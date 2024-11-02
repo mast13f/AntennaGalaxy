@@ -28,6 +28,8 @@ Ensure that the story evolves uniquely depending on their choices.
 Each time, the option should start by 1. 2. 3. and the player can choose one of the options by typing the number of the option.
 """
 
+
+
 # modify for front end 
 def output_function(output):
     print(output)
