@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Space Adventure Game</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha384-k6RqeWeci5ZR/Lv4MR0sA0FfDOMq8b0Tx4U2eQQ2t8yD+pcVx4yDfNJ1ABJXDdGj" crossorigin="anonymous">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: url('/static/pic.png') no-repeat center center fixed;
+            background-size: cover;
+            color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        #chat-container {
+            width: 100%;
+            max-width: 600px;
+            height: 80vh;
+            background: #2e2e3e;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        #chat-output {
+            flex: 1;
+            padding: 15px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .message {
+            margin: 10px 0;
+            padding: 10px 15px;
+            border-radius: 15px;
+            max-width: 80%;
+            line-height: 1.4;
+        }
+
+        .bot-message {
+            background-color: #4a4a6a;
+            align-self: flex-start;
+        }
+
+        .user-message {
+            background-color: #0055ff;
+            color: #fff;
+            align-self: flex-end;
+        }
+
+        #user-input-form {
+            display: flex;
+            border-top: 1px solid #3e3e5e;
+            background-color: #2e2e3e;
+        }
+
+        #user-input {
+            flex: 1;
+            padding: 15px;
+            border: none;
+            background: none;
+            color: #f0f0f0;
+            font-size: 1rem;
+        }
+
+        #user-input:focus {
+            outline: none;
+        }
+
+        #submit-button {
+            background-color: #0055ff;
+            border: none;
+            padding: 15px;
+            color: #fff;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        #submit-button:hover {
+            background-color: #0040cc;
+        }
+
+        .options-list {
+            margin-top: 5px;
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .options-list li {
+            cursor: pointer;
+            padding: 5px;
+            background-color: #3e3e5e;
+            border-radius: 5px;
+            margin-top: 5px;
+            transition: background-color 0.2s;
+        }
+
+        .options-list li:hover {
+            background-color: #4f4f7f;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <div id="chat-container">
+        <div id="chat-output">
+            <!-- Game content will be displayed here as chat bubbles -->
+        </div>
+        <form id="user-input-form">
+            <input type="text" id="user-input" placeholder="Type your choice or question..." autocomplete="off" required>
+            <button type="submit" id="submit-button"><i class="fas fa-paper-plane"></i></button>
+        </form>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            function addMessage(content, sender) {
+                const messageClass = sender === 'bot' ? 'bot-message' : 'user-message';
+                $('#chat-output').append(`<div class="message ${messageClass}">${content}</div>`);
+                $('#chat-output').scrollTop($('#chat-output')[0].scrollHeight);
+            }
+
+            function updateGameOutput(response) {
+                let content = `<p>${response.story}</p>`;
+                if (!response.game_end) {
+                    content += `<p><strong>${response.question}</strong></p><ul class="options-list">`;
+                    response.options.forEach((option, index) => {
+                        content += `<li data-option="${index + 1}">${index + 1}. ${option}</li>`;
+                    });
+                    content += `</ul>`;
+                }
+                addMessage(content, 'bot');
+            }
+
+            $('#user-input-form').on('submit', function(event) {
+                event.preventDefault();
+                const user_input = $('#user-input').val();
+                $('#user-input').val('');  // Clear input field
+                addMessage(user_input, 'user');
+
+                $.ajax({
+                    url: '/get_response',
+                    method: 'POST',
+                    contentType: 'application/json',
+                    data: JSON.stringify({ user_input }),
+                    success: function(response) {
+                        if (response.error) {
+                            addMessage(response.error, 'bot');
+                        } else {
+                            updateGameOutput(response);
+                        }
+                    }
+                });
+            });
+
+            // Handle option clicks
+            $('#chat-output').on('click', '.options-list li', function() {
+                const option = $(this).data('option');
+                $('#user-input').val(option);  // Auto-fill the input with option number
+                $('#user-input-form').submit(); // Trigger form submit
+            });
+
+            // Initialize game output
+            updateGameOutput({
+                story: "Welcome to the Space Adventure! You can type a number to make a choice or type a question to gather more information.",
+                question: "What would you like to do?",
+                options: ["Explore the spaceship", "Check your surroundings", "Ask a question"],
+                game_end: false
+            });
+        });
+    </script>
+</body>
+</html>
