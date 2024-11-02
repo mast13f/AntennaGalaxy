@@ -24,13 +24,4 @@ message_history = [
     {"role": "system", "content": initial_prompt}
 ]
 
-# initialize item dictionary
-item_dict = {
-    "gold coin": "@peiyang",
-    "a website like": "@janson",
-    "a book": "@polly",
-    "a map": "@freda",
-}
-
-
-main.play_game(name, greeting, initial_prompt, item_dict, message_history)
+main.play_game(name, greeting, initial_prompt, message_history)
