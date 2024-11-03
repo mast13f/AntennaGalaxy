@@ -1,0 +1,103 @@
+/* General reset */
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+}
+
+/* Spline Container */
+#spline-container {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+/* Iframes styling */
+iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: opacity 0.3s ease;
+}
+
+/* Message styling */
+.message {
+    position: absolute;
+    bottom: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 24px;
+    color: white;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 10px;
+    border-radius: 5px;
+    z-index: 10;
+}
+
+/* Button styling */
+button {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #ffffff;
+    padding: 15px 30px;
+    border: 2px solid #ffffff;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    z-index: 10;
+}
+
+#talk-to-sun {
+    top: 80%;
+}
+
+#talk-to-venus {
+    top: 80%;
+}
+
+#transition-button {
+    top: 70%;
+}
+
+/* Button Hover Effect */
+button:hover {
+    background-color: #ffffff;
+    color: #000;
+}
+
+/* Fade-out and Fade-in effects */
+.fade-out {
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.fade-in {
+    opacity: 1;
+    transition: opacity 0.5s ease;
+}
+
+.hidden {
+    display: none;
+}
+
+/* Scaling up iframe directly for the Sun and Venus views */
+.large-view-sun {
+    transform: scale(3.5);
+    transition: transform 0.5s ease;
+}
+
+.large-view-venus {
+    transform: scale(5.0);
+    transition: transform 0.5s ease;
+}

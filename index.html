@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fullscreen Spline Embed</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="spline-container">
+        <!-- Initial Spline Embed -->
+        <iframe id="spline-frame" src="https://my.spline.design/particleplanet-e3c3489bca7beb8ae35f6b97825afc89/" allow="fullscreen"></iframe>
+        
+        <!-- Solar System Spline Embed -->
+        <iframe id="solar-frame" src="https://my.spline.design/solarsystembasic-bb3ce38040d588a8b8c01462e42d57b5/" loading="lazy" allow="fullscreen" style="opacity: 0;"></iframe>
+
+        <!-- Sun Frame with Message -->
+        <iframe id="sun-frame" src="https://my.spline.design/solarsystembasic-51f20c0acef7c99cdd0334b0b5a6bef9/" loading="lazy" allow="fullscreen" style="opacity: 0; display: none;"></iframe>
+        <div id="sun-message" class="message hidden">Hi traveller, how have you been?</div>
+          
+        <!-- Venus Frame with Message -->
+        <iframe id="venus-frame" src="https://my.spline.design/solarsystembasic-44a1a99ca0dd290a224b17ae34ce3eb6/" loading="lazy" allow="fullscreen" style="opacity: 0; display: none;"></iframe>
+        <div id="venus-message" class="message hidden">Hi traveller, welcome to Venus</div>
+
+        <!-- Buttons -->
+        <button id="talk-to-sun" class="hidden">Talk to Sun</button>
+        <button id="talk-to-venus" class="hidden">Talk to Venus</button>
+        <button id="transition-button">Start Your Wellness Journey</button>
+
+        <!-- Loading Spinner -->
+        <div id="loading-spinner" class="hidden"></div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
