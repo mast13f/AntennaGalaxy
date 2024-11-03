@@ -26,12 +26,11 @@ iframe {
     transition: opacity 0.3s ease; /* Smooth transition for opacity */
 }
 
-/* Transition Button styling */
-#transition-button {
+/* Button styling */
+button {
     position: absolute;
-    top: 70%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translateX(-50%);
     background-color: rgba(0, 0, 0, 0.8);
     color: #ffffff;
     padding: 15px 30px;
@@ -43,8 +42,20 @@ iframe {
     z-index: 10;
 }
 
+#talk-to-sun {
+    top: 80%; /* Position below the transition button */
+}
+
+#talk-to-venus {
+    top: 80%; /* Position below the Talk to Sun button */
+}
+
+#transition-button {
+    top: 70%; /* Original position of the Explore button */
+}
+
 /* Button Hover Effect */
-#transition-button:hover {
+button:hover {
     background-color: #ffffff;
     color: #000;
 }
@@ -75,27 +86,18 @@ iframe {
     z-index: 20;
 }
 
-#text-overlay {
-    position: absolute;
-    bottom: 10%; /* Position near the bottom */
-    left: 50%;
-    transform: translateX(-50%); /* Center horizontally */
-    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
-    color: #ffffff; /* White text for contrast */
-    padding: 15px; /* Add some padding */
-    border-radius: 5px; /* Slightly rounded corners */
-    text-align: center; /* Center the text */
-    z-index: 15; /* Ensure it appears above the iframe */
-    max-width: 80%; /* Limit width to avoid overflowing */
-}
-
 .hidden {
     display: none;
 }
 
-/* Zoom-in effect for the second frame */
+/* Zoom effects */
 .zoom-in {
     transform: scale(3.0); /* Adjust the scale value as needed */
+    transition: transform 1s ease; /* Smooth zoom transition */
+}
+
+.zoom-in-venus {
+    transform: scale(4.0); /* Adjust the scale value for Venus */
     transition: transform 1s ease; /* Smooth zoom transition */
 }
 

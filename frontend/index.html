@@ -12,16 +12,24 @@
         <iframe id="spline-frame" src="https://my.spline.design/particleplanet-e3c3489bca7beb8ae35f6b97825afc89/" allow="fullscreen"></iframe>
         
         <!-- Preloaded Spline Embed with lazy loading -->
-        <iframe id="preload-frame" src="https://my.spline.design/solarsystembasic-51f20c0acef7c99cdd0334b0b5a6bef9/" loading="lazy" allow="fullscreen" style="opacity: 0;"></iframe>
-        <div id="text-overlay" class="hidden">
-            Ah, a traveler in my orbit! Come closer, don’t be shy—I've got plenty of light to share! Tell me, what's been weighing on your heart lately? Think of me as your bright friend in the sky, here to listen, reflect, and maybe add a little sparkle to your thoughts. So… what’s on your mind?
-        </div>
-        <!-- Centered Button -->
-        <button id="transition-button">Explore the Solar System</button>
-    </div>
+        <iframe id="solar-frame" src="https://my.spline.design/solarsystembasic-bb3ce38040d588a8b8c01462e42d57b5/" loading="lazy" allow="fullscreen" style="opacity: 0;"></iframe>
 
-    <!-- Loading Spinner -->
-    <div id="loading-spinner" class="hidden"></div>
+        <iframe id="preload-frame" src="https://my.spline.design/solarsystembasic-51f20c0acef7c99cdd0334b0b5a6bef9/" loading="lazy" allow="fullscreen" style="opacity: 0;"></iframe>
+          
+        <iframe id="venus-frame" src="https://my.spline.design/solarsystembasic-44a1a99ca0dd290a224b17ae34ce3eb6/" loading="lazy" allow="fullscreen" style="opacity: 0; display: none;"></iframe>
+
+        <!-- Talk to Sun Button -->
+        <button id="talk-to-sun" class="hidden">Talk to Sun</button>
+
+        <!-- Talk to Venus Button (initially hidden) -->
+        <button id="talk-to-venus" class="hidden">Talk to Venus</button>
+
+        <!-- Centered Button to start the interaction -->
+        <button id="transition-button">Explore the Solar System</button>
+
+        <!-- Loading Spinner -->
+        <div id="loading-spinner" class="hidden"></div>
+    </div>
     
     <script src="script.js"></script>
 </body>
