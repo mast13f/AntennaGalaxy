@@ -1,0 +1,106 @@
+/* General reset */
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+}
+
+/* Spline Container */
+#spline-container {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+/* Iframes styling */
+iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: opacity 0.3s ease; /* Smooth transition for opacity */
+}
+
+/* Transition Button styling */
+#transition-button {
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #ffffff;
+    padding: 15px 30px;
+    border: 2px solid #ffffff;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    z-index: 10;
+}
+
+/* Button Hover Effect */
+#transition-button:hover {
+    background-color: #ffffff;
+    color: #000;
+}
+
+/* Fade-out and Fade-in effects */
+.fade-out {
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.fade-in {
+    opacity: 1;
+    transition: opacity 0.5s ease;
+}
+
+/* Loading Spinner */
+#loading-spinner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 40px;
+    height: 40px;
+    border: 5px solid rgba(255, 255, 255, 0.3);
+    border-top: 5px solid #ffffff;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    z-index: 20;
+}
+
+#text-overlay {
+    position: absolute;
+    bottom: 10%; /* Position near the bottom */
+    left: 50%;
+    transform: translateX(-50%); /* Center horizontally */
+    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+    color: #ffffff; /* White text for contrast */
+    padding: 15px; /* Add some padding */
+    border-radius: 5px; /* Slightly rounded corners */
+    text-align: center; /* Center the text */
+    z-index: 15; /* Ensure it appears above the iframe */
+    max-width: 80%; /* Limit width to avoid overflowing */
+}
+
+.hidden {
+    display: none;
+}
+
+/* Zoom-in effect for the second frame */
+.zoom-in {
+    transform: scale(3.0); /* Adjust the scale value as needed */
+    transition: transform 1s ease; /* Smooth zoom transition */
+}
+
+/* Spinner Animation */
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}

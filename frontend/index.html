@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fullscreen Spline Embed</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="spline-container">
+        <!-- Initial Spline Embed -->
+        <iframe id="spline-frame" src="https://my.spline.design/particleplanet-e3c3489bca7beb8ae35f6b97825afc89/" allow="fullscreen"></iframe>
+        
+        <!-- Preloaded Spline Embed with lazy loading -->
+        <iframe id="preload-frame" src="https://my.spline.design/solarsystembasic-51f20c0acef7c99cdd0334b0b5a6bef9/" loading="lazy" allow="fullscreen" style="opacity: 0;"></iframe>
+        <div id="text-overlay" class="hidden">
+            Ah, a traveler in my orbit! Come closer, don’t be shy—I've got plenty of light to share! Tell me, what's been weighing on your heart lately? Think of me as your bright friend in the sky, here to listen, reflect, and maybe add a little sparkle to your thoughts. So… what’s on your mind?
+        </div>
+        <!-- Centered Button -->
+        <button id="transition-button">Explore the Solar System</button>
+    </div>
+
+    <!-- Loading Spinner -->
+    <div id="loading-spinner" class="hidden"></div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
